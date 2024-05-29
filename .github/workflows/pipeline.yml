@@ -1,0 +1,20 @@
+name: Markdown Lint                                       # Define the name of the workflow
+
+on: [push, pull_request]                                  # Trigger the workflow on push and pull request events
+
+jobs:
+  lint:                                                   # Define a job named 'lint'
+    runs-on: ubuntu-latest                                # Specify the type of virtual machine to use (Ubuntu latest version)
+
+    container:
+      image: monkeyknuckles/markdownlint-cli2             # Use a Docker container with the markdownlint-cli2 image
+
+    steps:                                                # List of steps to execute in the job
+      - name: Checkout code                               # Step name: Checkout code from the repository
+        uses: actions/checkout@v3                         # Use the checkout action to clone the repository
+
+      - name: Copy markdownlint config                    # Step name: Copy markdownlint configuration file
+        run: cp /app/.markdownlint.yml $GITHUB_WORKSPACE  # Copy the .markdownlint.yml file from the container to the workspace
+
+      - name: Run markdownlint-cli2                       # Step name: Run markdownlint-cli2
+        run: markdownlint-cli2 '**/*.md'                  # Execute the markdownlint-cli2 command on all Markdown files in the repository
