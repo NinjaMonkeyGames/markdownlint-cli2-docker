@@ -40,3 +40,4 @@ Docker pull address: monkeyknuckles/markdownlint-cli2
 | Version No:    | Description Of Update                                     |
 |----------------|-----------------------------------------------------------|
 | 0.0.0.0        | Base files included.                                      |
+| 0.0.0.1        | Updated license.                                          |

@@ -4,11 +4,11 @@
 
 FROM alpine:latest
 
-# SET THE WORKING DIRECTORY FOR THE CONTAINER
+# INSTALL NODE
 
 RUN apk add --update nodejs npm
 
-# INSTALL markdownlint-cli2 globally
+# INSTALL markdownlint-cli2 GLOBALLY
 
 RUN npm install -g markdownlint-cli2
 
