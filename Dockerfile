@@ -2,15 +2,12 @@
 
 # USE ALPINE LINUX O/S AS BASE IMAGE
 
-FROM alpine:latest
+FROM alpine:3.20.0
 
 # INSTALL NODE
 
-RUN apk add --update nodejs npm
-
-# INSTALL markdownlint-cli2 GLOBALLY
-
-RUN npm install -g markdownlint-cli2
+RUN apk add --no-cache nodejs=20.13.1-r0 npm=10.8.0-r0 && \
+    npm install -g markdownlint-cli2@0.13.0
 
 # SET THE WORKING DIRECTORY FOR THE CONTAINER
 
@@ -18,4 +15,4 @@ WORKDIR /app
 
 # INCLUDE .markdownlint.yml IN DOCKER BUILD
 
-COPY .markdownlint.yml ./.markdownlint.yml
+COPY .markdownlint.yaml ./.markdownlint.yaml

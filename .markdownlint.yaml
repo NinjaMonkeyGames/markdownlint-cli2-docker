@@ -66,11 +66,11 @@ MD012:
 
 MD013:
   # Number of characters
-  line_length: 800
+  line_length: 120
   # Number of characters for headings
-  heading_line_length: 80
+  heading_line_length: 120
   # Number of characters for code blocks
-  code_block_line_length: 80
+  code_block_line_length: 120
   # Include code blocks
   code_blocks: true
   # Include tables
@@ -294,7 +294,7 @@ MD053:
 # MD054/link-image-style : Link and image style : https://github.com/DavidAnson/markdownlint/blob/v0.33.0/doc/md054.md
 
 MD054:
-  # Allow autolinks
+  # Allow auto-links
 
   autolink: true
 
