@@ -75,7 +75,7 @@ See links below for more information about Markdownlint-cli2 and Alpine Linux.
 
 ---
 
-## Version History ##
+## Version history ##
 
 This project uses a sequential versioning system.
 
@@ -84,10 +84,11 @@ This project uses a sequential versioning system.
 | 0.0.0.0        | Base files included.                                                                                |
 | 0.0.0.1        | Updated license.                                                                                    |
 | 0.0.0.2        | Update a while number of options in which to template the rest of the linters.                      |
+| 0.0.0.3        | Fixed path for copying config file over from the root directory. Was named .yml not .yaml.          |
 
 ---
 
-## Contact Information ##
+## Contact information ##
 
 Author: Daniel Mallett (Monkey Knuckles)
 
