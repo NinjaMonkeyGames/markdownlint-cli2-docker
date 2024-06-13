@@ -31,8 +31,6 @@ See links below for more information about Markdownlint-cli2 and Alpine Linux.
   
   * **Project links:**
   
-    * **Docker pull address:** monkeyknuckles/markdownlint-cli2
-  
     * **Project Docker pull address:**  docker pull monkeyknuckles/markdownlint-cli2
 
     * **Project Docker landing page:**  <https://hub.docker.com/r/monkeyknuckles/markdownlint-cli2>
@@ -68,6 +66,7 @@ See links below for more information about Markdownlint-cli2 and Alpine Linux.
 |---------------------------------------|-------|----------------------------------------------------------------------|
 | > markdown-fail                       |   49  | Contains examples of every possible markdown error.                  |
 | .markdownlint.yml                     |   1   | Contains markdown rule configuration.                                |
+| > .git                                |   57  | Contains git configuration files.                                    |
 | > .github > workflows > pipeline.yml  |   1   | Lints all markdown files in docker.                                  |
 | dockerfile                            |   1   | Information on how to build docker.                                  |
 | README.md                             |   1   | Contains information about the project.                              |
@@ -85,6 +84,7 @@ This project uses a sequential versioning system.
 | 0.0.0.1        | Updated license.                                                                                    |
 | 0.0.0.2        | Update a while number of options in which to template the rest of the linters.                      |
 | 0.0.0.3        | Fixed path for copying config file over from the root directory. Was named .yml not .yaml.          |
+| 0.0.0.4        | Internal adjustment to make the project structure consistent across all repositories in the project.|
 
 ---
 
@@ -99,7 +99,7 @@ If you have any problems with the repository or have any suggestions please cont
 
 You may also contact us via our [website](https://ninjamonkeygames.com).
 
-Any bugs should be raised as an [issue](https://github.com/NinjaMonkeyGames/sandbox-bde2e5b8/issues) on GitHub.
+Any bugs should be raised as an [issue](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/issues) on GitHub.
 
 ---
 

@@ -2,19 +2,20 @@ name: Markdown Lint                                       # Define the name of t
 
 on: [push, pull_request]                                  # Trigger the workflow on push and pull request events
 
-jobs:
+jobs:                                                     # Initialise job
   lint:                                                   # Define a job named 'lint'
-    runs-on: ubuntu-latest                                # Specify the type of virtual machine to use (Ubuntu latest version)
 
-    container:
-      image: monkeyknuckles/markdownlint-cli2             # Use a Docker container with the markdownlint-cli2 image
+    runs-on: ubuntu-latest                                # Specifies the type of VM to provision
 
-    steps:                                                # List of steps to execute in the job
-      - name: Checkout code                               # Step name: Checkout code from the repository
+    container:                                            # Set container image
+      image: monkeyknuckles/markdownlint-cli2             # Points to Markdownlint container
+
+    steps:                                                # List of steps to execute
+      - name: Checkout code                               # Checkout code label text
         uses: actions/checkout@v3                         # Use the checkout action to clone the repository
 
-      - name: Copy markdownlint config                    # Step name: Copy markdownlint configuration file
-        run: cp /app/.markdownlint.yaml $GITHUB_WORKSPACE  # Copy the .markdownlint.yml file from the container to the workspace
+      - name: Copy markdownlint config                    # Copy Markdownlint configuration file label text
+        run: cp /app/.markdownlint.yaml $GITHUB_WORKSPACE # Include the Markdown configuration file in the docker build
 
-      - name: Run markdownlint-cli2                       # Step name: Run markdownlint-cli2
-        run: markdownlint-cli2 '**/*.md'                  # Execute the markdownlint-cli2 command on all Markdown files in the repository
+      - name: Run markdownlint-cli2                       # Set lint Markdownlint label text
+        run: markdownlint-cli2 '**/*.md'                  # Lint all Markdown files
