@@ -42,8 +42,9 @@ jobs:
       - name: Mark directory as safe
         run: git config --global --add safe.directory $GITHUB_WORKSPACE
 
-      - name: Show last commit message
-        run: git log -1 --pretty=format:"%H%n%B"
+      # ✅ Show last commit message
+      #- name: Show last commit message
+      #  run: git log -1 --pretty=format:"%H%n%B"
 
       # ✅ Lint the last commit message
       - name: Run commitlint
