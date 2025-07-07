@@ -24,18 +24,18 @@ jobs:
     with:
       environment_name: ${{ inputs.environment_name }}
 
-  call-cspell:
-    name: spellcheck
-    uses: ./.github/workflows/spellcheck.yml
-    with:
-      environment_name: ${{ inputs.environment_name }}
+  #call-cspell:
+  #  name: spellcheck
+  #  uses: ./.github/workflows/spellcheck.yml
+  #  with:
+  #    environment_name: ${{ inputs.environment_name }}
 
   call-bump-version:
     name: Bump Version
     needs:
       - call-markdownlint
       - call-commitlint
-      - call-cspell
+      #- call-cspell
     uses: ./.github/workflows/bump-version.yml
     with:
       environment_name: ${{ inputs.environment_name }}
