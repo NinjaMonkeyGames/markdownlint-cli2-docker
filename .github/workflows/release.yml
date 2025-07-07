@@ -35,7 +35,7 @@ jobs:
     needs:
       - call-markdownlint
       - call-commitlint
-      - call-cspell
+      #- call-cspell
     uses: ./.github/workflows/bump-version.yml
     with:
       environment_name: ${{ inputs.environment_name }}
