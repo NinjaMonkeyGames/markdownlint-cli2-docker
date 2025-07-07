@@ -1,4 +1,5 @@
 {
+  "name": "markdownlint-cli2-docker",
   "version": "0.1.0",
   "description": "A CI/CD workflow template for full-stack development projects",
   "type": "module",
