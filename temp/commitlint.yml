@@ -1,0 +1,43 @@
+########################################################################################################################
+#                                                  LINT COMMIT MESSAGE                                                 #
+########################################################################################################################
+
+name: Lint Commit Message
+
+on:
+  workflow_call:
+    inputs:
+      environment_name:
+        required: true
+        type: string
+      message:
+        required: false
+        type: string
+
+permissions:
+  contents: read  # Grants read access to repository contents
+  
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    
+    container:
+      image: monkeyknuckles/sandbox
+
+    steps:
+        
+    # Checkout Code
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+    # Mark directory as safe to avoid error
+
+      - name: Mark directory as safe to avoid error
+        run: git config --global --add safe.directory $GITHUB_WORKSPACE
+
+    # Lint last commit message
+
+      - name: Run commitlint
+        run: commitlint --last -c -s -V --config .config/commitlint.config.js
+
