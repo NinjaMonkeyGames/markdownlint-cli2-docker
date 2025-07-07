@@ -16,32 +16,28 @@ on:
 
 permissions:
   contents: read  # Grants read access to repository contents
-
+  
 jobs:
   lint:
     runs-on: ubuntu-latest
+    
+    container:
+      image: monkeyknuckles/sandbox
 
     steps:
-      # ✅ Checkout code with full history
+        
+    # Checkout Code
+
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      # ✅ Set up Node.js (needed for commitlint
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
+    # Mark directory as safe to avoid error
 
-      # ✅ Install commitlint globally
-      - name: Install commitlint
-        run: npm install -g @commitlint/cli @commitlint/config-conventional
-
-      # ✅ Mark workspace as safe for git
-      - name: Mark directory as safe
+      - name: Mark directory as safe to avoid error
         run: git config --global --add safe.directory $GITHUB_WORKSPACE
 
-      # ✅ Lint the last commit message
+    # Lint last commit message
+
       - name: Run commitlint
-        run: commitlint --last --config .config/commitlint.config.js
+        run: commitlint --last -c -s -V --config .config/commitlint.config.js
+

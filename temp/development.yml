@@ -1,0 +1,19 @@
+########################################################################################################################
+#                                                  DEVELOPMENT WORKFLOW                                                #
+########################################################################################################################
+
+name: Development Workflow
+
+on:
+  workflow_call:
+    inputs:
+      environment_name:
+        required: true
+        type: string
+
+jobs:
+  call-commitlint:
+    name: commitlint
+    uses: ./.github/workflows/commitlint.yml
+    with:
+      environment_name: ${{ inputs.environment_name }}

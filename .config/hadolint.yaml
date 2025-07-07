@@ -1,0 +1,17 @@
+# .hadolint.yaml
+
+# List of rules to ignore (example: DL3008 is about missing apt-get clean)
+
+ignored:
+  - DL3008
+  - DL4006
+
+# Override default severity levels
+
+overrides:
+  DL3003: warning  # Use WORKDIR to switch to a directory
+  DL3006: error    # Always tag the version of an image explicitly
+
+# Use failure-threshold to change exit codes: info, warning, error
+
+failureThreshold: warning
