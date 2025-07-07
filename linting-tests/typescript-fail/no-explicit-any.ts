@@ -1,0 +1,1 @@
+const age: any = 'seventeen';
