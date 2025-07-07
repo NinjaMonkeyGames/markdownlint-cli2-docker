@@ -8,7 +8,9 @@ on:
   push:
     branches:
       - '**'
-  pull_request:
+  pull_request:            
+    branches:
+      - '**'
   workflow_dispatch:
 
 permissions:
@@ -61,7 +63,7 @@ jobs:
             if [[ "$BRANCH_NAME" == feature/* && "$BASE_BRANCH" == "develop" ]]; then
               echo "env=staging" >> "$GITHUB_OUTPUT"
               echo "✅ Detected environment: staging"
-            elif [[ "$BRANCH_NAME" == "develop" && "$BASE_BRANCH" == release/* ]]; then
+            elif [[ "$BRANCH_NAME" == "develop" && "$BASE_BRANCH" == release ]]; then
               echo "env=release" >> "$GITHUB_OUTPUT"
               echo "✅ Detected environment: release"
             elif [[ "$BRANCH_NAME" == release/* && "$BASE_BRANCH" == "master" ]]; then
