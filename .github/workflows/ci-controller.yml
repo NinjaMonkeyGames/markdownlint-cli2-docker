@@ -8,7 +8,9 @@ on:
   push:
     branches:
       - '**'
-  pull_request:
+  pull_request:            
+    branches:
+      - '**'
   workflow_dispatch:
 
 permissions:
