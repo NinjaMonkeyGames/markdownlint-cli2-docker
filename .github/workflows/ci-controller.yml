@@ -44,7 +44,7 @@ jobs:
             if [[ "$BRANCH_NAME" == feature/* ]]; then
               echo "env=development" >> "$GITHUB_OUTPUT"
               echo "✅ Detected environment: development"
-            elif [[ "$BRANCH_NAME" == "develop" || "$BRANCH_NAME" == "release" || "$BRANCH_NAME" == release/* || "$BRANCH_NAME" == "master" ]]; then
+            elif [[ "$BRANCH_NAME" == "develop" || "$BRANCH_NAME" == "release" || "$BRANCH_NAME" == release* || "$BRANCH_NAME" == "master" ]]; then
 
               echo "✅ Push to target branch '$BRANCH_NAME' allowed (likely via merge)"
               # Set env
