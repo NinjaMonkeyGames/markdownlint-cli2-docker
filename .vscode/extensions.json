@@ -1,0 +1,14 @@
+{
+    "recommendations": 
+    [
+      "dbaeumer.vscode-eslint",              
+      "davidanson.vscode-markdownlint",     
+      "Tyriar.tree-exporter",                
+      "ms-vscode-remote.remote-wsl",         
+      "streetsidesoftware.code-spell-checker", 
+      "github.vscode-codeql",                
+      "github.codeql-agent",                
+      "conventionalcommits.commitlint"       
+    ]
+  }
+  

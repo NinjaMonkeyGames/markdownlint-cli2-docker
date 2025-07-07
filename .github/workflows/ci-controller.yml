@@ -1,0 +1,106 @@
+########################################################################################################################
+#                                                CI WORKFLOW CONTROLLER                                                #
+########################################################################################################################
+
+name: CI Controller
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  detect-environment:
+    runs-on: ubuntu-latest
+    outputs:
+      env: ${{ steps.setenv.outputs.env }}
+    steps:
+      - name: Detect Environment and Set Output
+        id: setenv
+        run: |
+          BRANCH_NAME="${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}"
+          BASE_BRANCH="${GITHUB_BASE_REF}"
+          EVENT_NAME="${{ github.event_name }}"
+
+          echo "Event: $EVENT_NAME"
+          echo "Branch: $BRANCH_NAME"
+          echo "Base Branch: $BASE_BRANCH"
+
+          if [[ "$EVENT_NAME" == "push" ]]; then
+            if [[ "$BRANCH_NAME" == feature/* ]]; then
+              echo "env=development" >> "$GITHUB_OUTPUT"
+              echo "✅ Detected environment: development"
+            elif [[ "$BRANCH_NAME" == "develop" || "$BRANCH_NAME" == release/* || "$BRANCH_NAME" == "master" ]]; then
+              echo "✅ Push to target branch '$BRANCH_NAME' allowed (likely via merge)"
+              # Determine environment explicitly
+              if [[ "$BRANCH_NAME" == "develop" ]]; then
+                echo "env=staging" >> "$GITHUB_OUTPUT"
+                echo "✅ Detected environment: staging"
+              elif [[ "$BRANCH_NAME" == release/* ]]; then
+                echo "env=release" >> "$GITHUB_OUTPUT"
+                echo "✅ Detected environment: release"
+              elif [[ "$BRANCH_NAME" == "master" ]]; then
+                echo "env=production" >> "$GITHUB_OUTPUT"
+                echo "✅ Detected environment: production"
+              fi
+            else
+              echo "❌ Direct pushes to $BRANCH_NAME are not allowed."
+              exit 1
+            fi
+
+          elif [[ "$EVENT_NAME" == "pull_request" ]]; then
+            if [[ "$BRANCH_NAME" == feature/* && "$BASE_BRANCH" == "develop" ]]; then
+              echo "env=staging" >> "$GITHUB_OUTPUT"
+              echo "✅ Detected environment: staging"
+            elif [[ "$BRANCH_NAME" == "develop" && "$BASE_BRANCH" == release/* ]]; then
+              echo "env=release" >> "$GITHUB_OUTPUT"
+              echo "✅ Detected environment: release"
+            elif [[ "$BRANCH_NAME" == release/* && "$BASE_BRANCH" == "master" ]]; then
+              echo "env=production" >> "$GITHUB_OUTPUT"
+              echo "✅ Detected environment: production"
+            else
+              echo "❌ Environment: unknown or invalid PR target"
+              exit 1
+            fi
+          else
+            echo "❌ Unhandled event type: $EVENT_NAME"
+            exit 1
+          fi
+
+  call-development:
+    if: needs.detect-environment.outputs.env == 'development'
+    needs: detect-environment
+    uses: ./.github/workflows/development.yml
+    with:
+      environment_name: development
+
+  call-staging:
+    if: needs.detect-environment.outputs.env == 'staging'
+    needs: detect-environment
+    uses: ./.github/workflows/staging.yml
+    with:
+      environment_name: staging
+
+  call-release:
+    if: needs.detect-environment.outputs.env == 'release'
+    needs: detect-environment
+    uses: ./.github/workflows/release.yml
+    with:
+      environment_name: release
+
+  call-production:
+    if: needs.detect-environment.outputs.env == 'production'
+    needs: detect-environment
+    uses: ./.github/workflows/production.yml
+    with:
+      environment_name: production
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
