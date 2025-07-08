@@ -1,0 +1,4 @@
+class Standalone {
+    method() {}
+    property = () => {};
+  }

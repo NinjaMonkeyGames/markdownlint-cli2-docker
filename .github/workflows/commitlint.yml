@@ -1,0 +1,51 @@
+########################################################################################################################
+#                                                  LINT COMMIT MESSAGE                                                 #
+########################################################################################################################
+
+name: Lint Commit Message
+
+on:
+  workflow_call:
+    inputs:
+      environment_name:
+        required: true
+        type: string
+      message:
+        required: false
+        type: string
+
+permissions:
+  contents: read  # Grants read access to repository contents
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ✅ Checkout code with full history
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # ✅ Set up Node.js (needed for commitlint
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # ✅ Install commitlint globally
+      - name: Install commitlint
+        run: npm install -g @commitlint/cli @commitlint/config-conventional
+
+      # ✅ Mark workspace as safe for git
+      - name: Mark directory as safe
+        run: git config --global --add safe.directory $GITHUB_WORKSPACE
+
+      # ✅ Show last commit
+      - name: Show last commit message
+        run: git log -1 --pretty=format:"%H%n%B"
+
+      # ✅ Lint the last commit message
+      - name: Run commitlint
+        run: commitlint --last --config .config/commitlint.config.js

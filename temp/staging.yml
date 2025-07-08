@@ -1,0 +1,20 @@
+########################################################################################################################
+#                                                   STAGING WORKFLOW                                                   #
+########################################################################################################################
+
+name: Staging Workflow
+
+on:
+  workflow_call:
+    inputs:
+      environment_name:
+        required: true
+        type: string
+
+jobs:
+
+  call-bump-version:
+    name: Bump Version
+    uses: ./.github/workflows/bump-version.yml
+    with:
+      environment_name: ${{ inputs.environment_name }}

@@ -1,0 +1,14 @@
+########################################################################################################################
+#                                          GITHUB SECURITY ISSUE CONFIGURATION                                         #
+########################################################################################################################
+
+# DISABLE BLANK ISSUES
+
+blank_issues_enabled: false
+
+# CONTACT LINKS
+
+contact_links:
+  - name: "🔒 Report a Security Vulnerability (Private)"
+    url: https://github.com/NinjaMonkeyGames/markdownlint-cli2-workflow-docker/security/advisories/new
+    about: "Please report security issues privately using GitHub's Private Security Reporting."

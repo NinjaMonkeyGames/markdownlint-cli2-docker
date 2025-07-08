@@ -1,0 +1,36 @@
+# Enforce LF line endings for GameMaker-specific files
+
+*.gml text eol=lf
+*.yy text eol=lf
+*.yyp text eol=lf
+*.yym text eol=lf
+*.yyz text eol=lf
+
+# Project metadata and config
+
+*.json text eol=lf
+*.txt text eol=lf
+*.ini text eol=lf
+
+# GitHub templates and config
+
+.github/**/*.yml text eol=lf
+*.md text eol=lf
+
+# Scripts, config, and other plaintext
+
+*.sh text eol=lf
+*.ps1 text eol=lf
+*.bat text eol=lf
+*.yaml text eol=lf
+*.toml text eol=lf
+
+# Optional: Force binary treatment (no line ending conversion)
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.wav binary
+*.ogg binary
+*.ttf binary
+*.otf binary

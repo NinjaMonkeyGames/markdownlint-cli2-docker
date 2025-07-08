@@ -1,0 +1,40 @@
+########################################################################################################################
+#                                                     LINT MARKDOWN                                                    #
+########################################################################################################################
+
+name: Lint Markdown
+
+on:
+  workflow_call:
+    inputs:
+      environment_name:
+        required: true
+        type: string
+      message:
+        required: false
+        type: string
+
+permissions:
+  contents: read  # Grants read access to repository contents
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    container:
+      image: monkeyknuckles/markdownlint-cli2
+      options: --user root
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Log Environment
+        run: echo "Running markdownlint in '${{ inputs.environment_name }}' environment"
+
+      - name: Optional Message
+        if: ${{ inputs.message != '' }}
+        run: echo "${{ inputs.message }}"
+
+      - name: Run markdownlint-cli2
+        run: markdownlint-cli2 "**/*.md" --config .config/.markdownlint-cli2.jsonc

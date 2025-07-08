@@ -1,0 +1,22 @@
+# CODEOWNERS for ninjamonkeygames GitFlow
+
+# Default: Ninja team owns everything
+* @ninjamonkeygames/ninja-team
+
+# Master (production)
+master/* @ninjamonkeygames/production-team
+
+# Develop (integration)
+develop/* @ninjamonkeygames/staging-team
+
+# Release prep
+release/* @ninjamonkeygames/release-team
+
+# Features
+feature/* @ninjamonkeygames/development-team
+
+# Hotfixes
+hotfix/* @ninjamonkeygames/production-team
+
+# Support (optional, for long-term maintenance)
+support/* @ninjamonkeygames/production-team

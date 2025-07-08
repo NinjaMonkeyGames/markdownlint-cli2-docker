@@ -1,0 +1,32 @@
+########################################################################################################################
+#                                                  DEVELOPMENT WORKFLOW                                                #
+########################################################################################################################
+
+name: Development Workflow
+
+on:
+  workflow_call:
+    inputs:
+      environment_name:
+        required: true
+        type: string
+
+jobs:
+  call-commitlint:
+    name: commitlint
+    uses: ./.github/workflows/commitlint.yml
+    with:
+      environment_name: ${{ inputs.environment_name }}
+
+  call-markdownlint:
+    name: markdownlint
+    uses: ./.github/workflows/markdownlint.yml
+    with:
+      environment_name: ${{ inputs.environment_name }}
+
+  # call-cspell:
+  #   name: spellcheck
+  #   uses: ./.github/workflows/spellcheck.yml
+  #   with:
+  #     environment_name: ${{ inputs.environment_name }}
+  
