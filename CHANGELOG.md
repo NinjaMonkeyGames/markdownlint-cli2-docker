@@ -1,3 +1,19 @@
+## 1.5.0 (2025-07-08)
+
+* feat(core): testing development environment ci ([8effbd0299e59dc36329b1113fe8fad07743b7ea](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/commit/8effbd0299e59dc36329b1113fe8fad07743b7ea)), closes [#1](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/issues/1)
+* chore(deps)(deps-dev): bump @semantic-release/npm from 12.0.1 to 12.0.2 ([3fbee0cbbaf47e391264f04551019c015738dbd6](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/commit/3fbee0cbbaf47e391264f04551019c015738dbd6))
+* Merge pull request #23 from NinjaMonkeyGames/dependabot/npm_and_yarn/semantic-release/npm-12.0.2 ([e125086a8484a6886c67a79035fa9b961f910c6b](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/commit/e125086a8484a6886c67a79035fa9b961f910c6b)), closes [#23](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/issues/23)
+
+
+### Details
+
+* Bumps [@semantic-release/npm](https://github.com/semantic-release/npm) from 12.0.1 to 12.0.2.
+- [Release notes](https://github.com/semantic-release/npm/releases)
+- [Commits](https://github.com/semantic-release/npm/compare/v12.0.1...v12.0.2)
+* chore(deps)(deps-dev): bump @semantic-release/npm from 12.0.1 to 12.0.2
+* Testing the development environment in CI to ensure that it is
+functioning correctly.
+
 ## 1.4.0 (2025-07-08)
 
 * feat(core): testing development environment ci ([73dd9386d4535ef0605575ef8b624f325c980d29](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/commit/73dd9386d4535ef0605575ef8b624f325c980d29)), closes [#1](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/issues/1)
