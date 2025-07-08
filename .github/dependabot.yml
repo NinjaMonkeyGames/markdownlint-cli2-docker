@@ -6,7 +6,7 @@ updates:
     schedule:
       interval: "weekly"
     commit-message:
-      prefix: "chore"
+      prefix: "chore(ci)"
       include: "scope"
 
   # Keep npm (JavaScript/Node) dependencies up to date
@@ -15,5 +15,5 @@ updates:
     schedule:
       interval: "weekly"
     commit-message:
-      prefix: "chore"
+      prefix: "chore(deps)"
       include: "scope"
