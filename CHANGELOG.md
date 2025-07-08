@@ -1,3 +1,13 @@
+## 1.1.0 (2025-07-08)
+
+* feat(core): testing development environment ci ([d1b2fa6d44dcbe212537c8f9a5add1666e9d509e](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/commit/d1b2fa6d44dcbe212537c8f9a5add1666e9d509e)), closes [#1](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/issues/1)
+
+
+### Details
+
+* Testing the development environment in CI to ensure that it is
+functioning correctly.
+
 ## 1.0.0 (2025-07-08)
 
 * feat(core): core files added ([42f50311e26260bed078f9afc2456932c756a0d1](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/commit/42f50311e26260bed078f9afc2456932c756a0d1))
