@@ -48,12 +48,10 @@ jobs:
 
               echo "✅ Push to target branch '$BRANCH_NAME' allowed (likely via merge)"
               # Set env
-              if [[ "$BRANCH_NAME" == "develop" ]]; then
-                echo "env=staging" >> "$GITHUB_OUTPUT"
-              elif [[ "$BRANCH_NAME" == release/* ]]; then
-                echo "env=release" >> "$GITHUB_OUTPUT"
-              elif [[ "$BRANCH_NAME" == "master" ]]; then
-                echo "env=production" >> "$GITHUB_OUTPUT"
+          if [[ "$BRANCH_NAME" == "develop" ]]; then
+            echo "env=staging" >> "$GITHUB_OUTPUT"
+          elif [[ "$BRANCH_NAME" == "release" || "$BRANCH_NAME" == release/* ]]; then
+            echo "env=release" >> "$GITHUB_OUTPUT"
               fi
             else
               echo "❌ Direct pushes to $BRANCH_NAME are not allowed."
