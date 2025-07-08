@@ -34,6 +34,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Required for git tag commands to work
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -52,20 +54,27 @@ jobs:
       - name: Show Docker info
         run: docker info
 
-      - name: Extract version from package.json
+      - name: Extract version from Git tag
         id: extract_version
         run: |
-          VERSION=$(node -p "require('./package.json').version")
+          VERSION=$(git describe --tags --abbrev=0)
+          VERSION_NO_V=${VERSION#v}
           echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "version_no_v=$VERSION_NO_V" >> $GITHUB_OUTPUT
 
-      - name: Build and push Docker image  
+      - name: Build and push Docker image
         run: |
-          echo "Building with version: ${{ steps.extract_version.outputs.version }}"
+          echo "Building Docker image with tags:"
+          echo " - latest"
+          echo " - ${{ steps.extract_version.outputs.version }}"
+          echo " - ${{ steps.extract_version.outputs.version_no_v }}"
+
           docker buildx build \
             --sbom=true \
             --provenance=true \
             --tag monkeyknuckles/markdownlint-cli2:latest \
             --tag monkeyknuckles/markdownlint-cli2:${{ steps.extract_version.outputs.version }} \
+            --tag monkeyknuckles/markdownlint-cli2:${{ steps.extract_version.outputs.version_no_v }} \
             --push .
 
       - name: Push README to Dockerhub
