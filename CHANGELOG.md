@@ -1,3 +1,40 @@
+## 1.4.0 (2025-07-08)
+
+* feat(core): testing development environment ci ([73dd9386d4535ef0605575ef8b624f325c980d29](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/commit/73dd9386d4535ef0605575ef8b624f325c980d29)), closes [#1](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/issues/1)
+* Merge pull request #19 from NinjaMonkeyGames/dependabot/npm_and_yarn/eslint-9.30.1 ([bd615a0277f03807bd028ee605aea08a36fd1955](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/commit/bd615a0277f03807bd028ee605aea08a36fd1955)), closes [#19](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/issues/19)
+* Merge pull request #20 from NinjaMonkeyGames/dependabot/npm_and_yarn/typescript-eslint-8.36.0 ([4bcd9f70485b4fc020748eddc04ac737027a5b11](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/commit/4bcd9f70485b4fc020748eddc04ac737027a5b11)), closes [#20](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/issues/20)
+* Merge pull request #21 from NinjaMonkeyGames/dependabot/npm_and_yarn/cspell-9.1.3 ([32d794f93c2cbe9938dd61cf241c17e85474a491](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/commit/32d794f93c2cbe9938dd61cf241c17e85474a491)), closes [#21](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/issues/21)
+* Merge pull request #22 from NinjaMonkeyGames/dependabot/npm_and_yarn/globals-16.3.0 ([af06cdeaf57aff49036c24e1cc7903bfd11db84f](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/commit/af06cdeaf57aff49036c24e1cc7903bfd11db84f)), closes [#22](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/issues/22)
+* chore(deps-dev): bump cspell from 9.0.2 to 9.1.3 ([ca1cff7ac4aa77e2aba32c004332f7f0b7cdfec5](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/commit/ca1cff7ac4aa77e2aba32c004332f7f0b7cdfec5))
+* chore(deps-dev): bump eslint from 9.29.0 to 9.30.1 ([d911064a420e14b7f2955d70b40d50f4a84a512e](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/commit/d911064a420e14b7f2955d70b40d50f4a84a512e))
+* chore(deps-dev): bump globals from 16.2.0 to 16.3.0 ([2b10ac16d500b995da5a930ee586c185f77aa40e](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/commit/2b10ac16d500b995da5a930ee586c185f77aa40e))
+* chore(deps-dev): bump typescript-eslint from 8.34.0 to 8.36.0 ([6410a0553176566d5789c8af602f0bdb2b28c7cf](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/commit/6410a0553176566d5789c8af602f0bdb2b28c7cf))
+
+
+### Details
+
+* Bumps [cspell](https://github.com/streetsidesoftware/cspell/tree/HEAD/packages/cspell) from 9.0.2 to 9.1.3.
+- [Release notes](https://github.com/streetsidesoftware/cspell/releases)
+- [Changelog](https://github.com/streetsidesoftware/cspell/blob/main/packages/cspell/CHANGELOG.md)
+- [Commits](https://github.com/streetsidesoftware/cspell/commits/v9.1.3/packages/cspell)
+* Bumps [eslint](https://github.com/eslint/eslint) from 9.29.0 to 9.30.1.
+- [Release notes](https://github.com/eslint/eslint/releases)
+- [Changelog](https://github.com/eslint/eslint/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/eslint/eslint/compare/v9.29.0...v9.30.1)
+* Bumps [globals](https://github.com/sindresorhus/globals) from 16.2.0 to 16.3.0.
+- [Release notes](https://github.com/sindresorhus/globals/releases)
+- [Commits](https://github.com/sindresorhus/globals/compare/v16.2.0...v16.3.0)
+* Bumps [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint/tree/HEAD/packages/typescript-eslint) from 8.34.0 to 8.36.0.
+- [Release notes](https://github.com/typescript-eslint/typescript-eslint/releases)
+- [Changelog](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/typescript-eslint/CHANGELOG.md)
+- [Commits](https://github.com/typescript-eslint/typescript-eslint/commits/v8.36.0/packages/typescript-eslint)
+* chore(deps-dev): bump cspell from 9.0.2 to 9.1.3
+* chore(deps-dev): bump eslint from 9.29.0 to 9.30.1
+* chore(deps-dev): bump globals from 16.2.0 to 16.3.0
+* chore(deps-dev): bump typescript-eslint from 8.34.0 to 8.36.0
+* Testing the development environment in CI to ensure that it is
+functioning correctly.
+
 ## 1.3.0 (2025-07-08)
 
 * Merge branch 'master' of https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker ([eca5ae19fbbd06775fb22022533fba9c83b7774d](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/commit/eca5ae19fbbd06775fb22022533fba9c83b7774d))
