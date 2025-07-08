@@ -41,31 +41,37 @@ jobs:
               exit 0
             fi
 
-            if [[ "$BRANCH_NAME" == feature/* ]]; then
-              echo "env=development" >> "$GITHUB_OUTPUT"
-              echo "✅ Detected environment: development"
-            elif [[ "$BRANCH_NAME" == "develop" || "$BRANCH_NAME" == "release" || "$BRANCH_NAME" == release* || "$BRANCH_NAME" == "master" ]]; then
-
-              echo "✅ Push to target branch '$BRANCH_NAME' allowed (likely via merge)"
-              # Set env
-          if [[ "$BRANCH_NAME" == "develop" ]]; then
-            echo "env=staging" >> "$GITHUB_OUTPUT"
-          elif [[ "$BRANCH_NAME" == "release" || "$BRANCH_NAME" == release/* ]]; then
-            echo "env=release" >> "$GITHUB_OUTPUT"
-              fi
-            else
-              echo "❌ Direct pushes to $BRANCH_NAME are not allowed."
-              exit 1
-            fi
+            case "$BRANCH_NAME" in
+              feature/*)
+                echo "env=development" >> "$GITHUB_OUTPUT"
+                echo "✅ Detected environment: development"
+                ;;
+              develop)
+                echo "env=staging" >> "$GITHUB_OUTPUT"
+                echo "✅ Detected environment: staging"
+                ;;
+              release | release/*)
+                echo "env=release" >> "$GITHUB_OUTPUT"
+                echo "✅ Detected environment: release"
+                ;;
+              master | master/*)
+                echo "env=production" >> "$GITHUB_OUTPUT"
+                echo "✅ Detected environment: production"
+                ;;
+              *)
+                echo "❌ Direct pushes to $BRANCH_NAME are not allowed."
+                exit 1
+                ;;
+            esac
 
           elif [[ "$EVENT_NAME" == "pull_request" ]]; then
             if [[ "$BRANCH_NAME" == feature/* && "$BASE_BRANCH" == "develop" ]]; then
               echo "env=staging" >> "$GITHUB_OUTPUT"
               echo "✅ Detected environment: staging"
-            elif [[ "$BRANCH_NAME" == "develop" && "$BASE_BRANCH" == release ]]; then
+            elif [[ "$BRANCH_NAME" == "develop" && "$BASE_BRANCH" == release* ]]; then
               echo "env=release" >> "$GITHUB_OUTPUT"
               echo "✅ Detected environment: release"
-            elif [[ "$BRANCH_NAME" == release/* && "$BASE_BRANCH" == "master" ]]; then
+            elif [[ "$BRANCH_NAME" == release/* && "$BASE_BRANCH" == master* ]]; then
               echo "env=production" >> "$GITHUB_OUTPUT"
               echo "✅ Detected environment: production"
             else
