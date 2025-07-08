@@ -40,7 +40,6 @@ export default {
       '@semantic-release/npm',
       {
         npmPublish: false,
-        // updatePackageJson is true by default, but we keep it explicit:
         updatePackageJson: true,
       },
     ],
@@ -51,5 +50,6 @@ export default {
         message: 'chore(release): ${nextRelease.version} [skip ci]',
       },
     ],
+    '@semantic-release/github', // ✅ Enables GitHub Releases
   ],
 };
