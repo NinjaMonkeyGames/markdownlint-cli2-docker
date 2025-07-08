@@ -23,27 +23,35 @@ jobs:
         run: |
           echo "Bumping version in ${environment_name} environment"
 
-        # Setup NodeJS
-
+      # Setup NodeJS
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 23
 
-        # Install dependencies
-
+      # Install dependencies from package-lock.json
       - name: Install dependencies
         run: npm ci
 
-        # Run Semantic Release
+      # Install required semantic-release plugins
+      - name: Install semantic-release plugins
+        run: |
+          npm install --no-save \
+            semantic-release \
+            @semantic-release/changelog \
+            @semantic-release/npm \
+            @semantic-release/git \
+            @semantic-release/github \
+            @semantic-release/commit-analyzer \
+            @semantic-release/release-notes-generator
 
+      # Run Semantic Release
       - name: Run Semantic Release 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release --extends ./.config/release.config.js
 
-        # Get current package version
-
+      # Get current package version
       - name: Get new version from package.json
         id: get_version
         run: |
@@ -52,11 +60,7 @@ jobs:
           VERSION=$(node -p "require('./package.json').version")
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
-
-        # Echo the updated version
-
+      # Echo the updated version
       - name: Output the updated version
         run: |
           echo "Updated version: ${{ steps.get_version.outputs.version }}"
-
-
