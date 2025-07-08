@@ -1,3 +1,14 @@
+## 1.6.0 (2025-07-08)
+
+* Merge branch 'master' of https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker ([8647ecc90e87aeaad554eb645be3b0010eb6c469](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/commit/8647ecc90e87aeaad554eb645be3b0010eb6c469))
+* feat(core): testing development environment ci ([60a0f2b1d950d91e831ad06ba7ee021ac92fa56b](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/commit/60a0f2b1d950d91e831ad06ba7ee021ac92fa56b)), closes [#1](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/issues/1)
+
+
+### Details
+
+* Testing the development environment in CI to ensure that it is
+functioning correctly.
+
 ## 1.5.0 (2025-07-08)
 
 * feat(core): testing development environment ci ([8effbd0299e59dc36329b1113fe8fad07743b7ea](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/commit/8effbd0299e59dc36329b1113fe8fad07743b7ea)), closes [#1](https://github.com/NinjaMonkeyGames/markdownlint-cli2-docker/issues/1)
