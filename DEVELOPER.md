@@ -2564,13 +2564,13 @@ Keep package dependencies up to date.
 
 Checks for dependencies once per week.
 
-### VSCODE SETTINGS FOLDER [.VSCODE] 📁
-
 ---
 
 [BACK TO TOP](#markdownlint-cli2-cicd-pipeline-docker-project-programmers-manual)
 
 ---
+
+### VSCODE SETTINGS FOLDER [.VSCODE] 📁
 
 #### Attribute Table : [.vscode]
 
@@ -2630,6 +2630,8 @@ Keeps a list of extensions needed to develop the project.
 #### Asset Contents Description : [extensions.json]
 
 Stores a list of extensions that the developer will be prompted to install when opening the project for the first time.
+
+---
 
 [BACK TO TOP](#markdownlint-cli2-cicd-pipeline-docker-project-programmers-manual)
 
